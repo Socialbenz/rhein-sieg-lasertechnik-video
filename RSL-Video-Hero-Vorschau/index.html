@@ -347,30 +347,69 @@ main>.intro-section.surface-story{
 @media(max-width:760px){.application-tab .rsl-tab-icon{width:25px;height:25px;}.tech-steps .rsl-tech-icon{width:56px;height:56px;}.process-stage-symbol .rsl-process-icon{width:38px;height:38px;}.contact .laser-form form{padding:24px;}}
 @media(prefers-reduced-motion:reduce){.rsl-animated-icon.animated *{animation:none!important;}}
 
+
+/* 2026-10-20: kompakte horizontal bedienbare Story anstelle einer bildschirmbreiten Scroll-Falle */
+main>.intro-section.surface-story{position:relative;z-index:2;margin-top:-62px!important;border-radius:40px 40px 0 0;background:#fff;box-shadow:0 -12px 40px rgba(0,15,34,.12)}
+.surface-story.section{padding:clamp(90px,9vw,123px) 0 clamp(74px,8vw,105px)}
+.surface-layout{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:clamp(28px,5vw,80px);align-items:center}
+.surface-layout .surface-story-heading{max-width:530px;min-width:0}
+.surface-layout .surface-story-heading h2{font-size:clamp(37px,4vw,58px);line-height:1.08;letter-spacing:-.045em;margin:20px 0 23px}
+.surface-layout .surface-story-heading .lead{font-size:clamp(17px,1.55vw,20px);line-height:1.65;color:#52677c;margin:0}
+.surface-assurance{border-left:2px solid #80aad3;padding-left:15px;font-size:14px;line-height:1.5;color:#466481;margin:26px 0 0}
+.surface-carousel{min-width:0;overflow:hidden;padding:clamp(17px,2.2vw,28px);background:linear-gradient(135deg,#f8fafc,#eaf1f7);border:1px solid #d2deea;border-radius:23px;box-shadow:0 17px 44px #0a1b3314}
+.surface-carousel-header,.surface-carousel-footer{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.surface-carousel-header{padding:0 2px 17px}
+.surface-carousel-header strong{font:600 clamp(15px,1.38vw,18px) Barlow,Arial,sans-serif;color:#0a1b33}
+.surface-carousel-controls,.surface-carousel-dots{display:flex;gap:8px;align-items:center}
+.surface-arrow{height:38px;width:38px;display:grid;place-items:center;border:1px solid #b5c8da;border-radius:50%;background:white;color:#0a1b33;padding:0;font-size:19px;cursor:pointer}
+.surface-arrow:hover:not(:disabled),.surface-arrow:focus-visible{background:#0a1b33;color:white}
+.surface-arrow:disabled{opacity:.35;cursor:default}
+.surface-carousel-window{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-inline:contain;border-radius:16px}
+.surface-carousel-window::-webkit-scrollbar{display:none}
+.surface-carousel-track{display:flex}
+.surface-slide{scroll-snap-align:start;scroll-snap-stop:always;flex:0 0 100%;min-width:0;background:white;border:1px solid #d8e3ed;border-radius:15px;overflow:hidden}
+.surface-slide-visual{position:relative;height:clamp(135px,14vw,184px);background-size:cover;background-position:center}
+.surface-visual-rust{background-image:linear-gradient(0deg,#071c32bc,transparent 73%),url('assets/asset_1753ad1bea52.webp')}
+.surface-visual-material{background-image:linear-gradient(0deg,#071c32bc,transparent 73%),url('assets/asset_ca8074fdaaeb.webp')}
+.surface-visual-location{background-image:linear-gradient(0deg,#071c32bc,transparent 73%),url('media/industrie-poster.jpg')}
+.surface-slide-visual span{position:absolute;left:20px;bottom:15px;color:#fff;font:11px 'IBM Plex Mono',monospace;letter-spacing:.09em}
+.surface-slide-content{min-height:169px;padding:23px 24px 25px}
+.surface-slide-content h3{font-size:clamp(24px,2.35vw,31px);letter-spacing:-.04em;line-height:1.15;color:#0a1b33;margin:0 0 11px}
+.surface-slide-content p{font-size:15px;line-height:1.6;color:#54687e;margin:0}
+.surface-carousel-footer{padding:17px 2px 1px;color:#758599;font:11px 'IBM Plex Mono',monospace}
+.surface-dot{width:22px;height:5px;border:0;border-radius:5px;padding:0;background:#b9c8d6;cursor:pointer}
+.surface-dot.is-active{width:35px;background:#3f6593}
+.surface-dot:focus-visible{outline:3px solid #80aad3;outline-offset:4px}
+@media(max-width:980px){.surface-layout{gap:30px;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}.surface-layout .surface-story-heading h2{font-size:clamp(32px,4.3vw,46px)}.surface-slide-content{padding:20px;min-height:185px}}
+@media(max-width:760px){main>.intro-section.surface-story{margin-top:-40px!important;border-radius:28px 28px 0 0}.surface-story.section{padding:75px 0 74px}.surface-layout{grid-template-columns:1fr;gap:30px}.surface-layout .surface-story-heading h2{font-size:clamp(35px,8.3vw,50px)}.surface-assurance{margin-top:17px}.surface-carousel{padding:18px}.surface-slide-visual{height:181px}.surface-slide-content{min-height:153px}}
+@media(max-width:420px){.surface-carousel{padding:13px}.surface-slide-visual{height:145px}.surface-slide-content{padding:19px}.surface-slide-content h3{font-size:24px}.surface-slide-content p{font-size:14px}.surface-carousel-footer{font-size:10px}}
+
 </style></head><body>
 
 <a class="skip" href="#inhalt">Zum Inhalt</a>
 <header id="header"><div class="wrap"><a href="#" class="brand" aria-label="Rhein-Sieg Lasertechnik – Start"><img class="brand-logo" src="assets/asset_e72146c902a3.svg" alt="Rhein-Sieg Lasertechnik" width="1045" height="214"></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menü</button><nav id="navigation" aria-label="Hauptnavigation"><a href="#anwendungen">Anwendungen</a><a href="#ergebnisse">Ergebnisse</a><a href="#technik">Technik</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a><a class="btn light" href="#kontakt">Reinigung anfragen</a></nav></div></header>
 <main id="inhalt"><section class="hero dark" aria-labelledby="hero-title"><div class="hero-photo" aria-hidden="true"><img id="hero-static-image" class="hero-static-image" src="assets/asset_c4a49c95f4f1.webp" alt="" hidden><video id="hero-background-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="media/graffiti-poster.jpg" disablepictureinpicture disableremoteplayback><source src="media/graffiti.mp4" type="video/mp4"></video></div><span class="hero-image-note">KI-generierte Videoszene · kein eigener Einsatz</span><div class="wrap hero-inner"><div class="eyebrow">Mobile Laserreinigung · Rhein-Sieg-Kreis</div><h1 id="hero-title">Laserreinigung.<br><span>Chemiefrei. Präzise.<br>Vor Ort.</span></h1><p class="intro">Rost auf Metall, Graffiti oder Farbe auf Holz: Wir prüfen Ihre Oberfläche und klären, ob eine Laserreinigung dafür infrage kommt. Dabei setzen wir keine chemischen Reinigungsmittel ein.</p><div class="actions"><a href="#kontakt" class="btn light">Reinigung anfragen</a><a href="#ergebnisse" class="btn outline">Ergebnisse ansehen</a></div><div class="benefits"><span>Schwerpunkt Rhein-Sieg-Kreis</span><span>Eignung wird vorab geprüft</span></div></div></section>
 <section class="section intro-section surface-story" aria-labelledby="surface-story-title">
-  <div class="wrap surface-story-heading">
-    <div class="eyebrow">Oberfläche und Bauteil</div>
-    <h2 id="surface-story-title">Das Teil ist noch gut.<br>Die Oberfläche nicht.</h2>
-    <p class="lead">Ob eine Laserreinigung sinnvoll ist, hängt vom Material, der Verschmutzung und den Bedingungen vor Ort ab. Drei Fragen klären wir deshalb zuerst.</p>
-  </div>
-  <div class="wrap surface-story-intro-cue" aria-hidden="true"><span>WEITER SCROLLEN</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15m-6-6 6 6 6-6"/></svg></div>
-  <div class="surface-story-region" id="surface-story-region">
-    <div class="surface-story-sticky">
-      <div class="wrap surface-story-stage">
-        <div class="surface-story-meta"><span>SO PRÜFEN WIR IHRE OBERFLÄCHE</span><span class="surface-story-meta-tail" aria-hidden="true">MATERIAL · EINSATZORT · PROBEFLÄCHE</span></div>
-        <div class="surface-story-window" tabindex="0" aria-label="Drei Fragen vor der Laserreinigung">
-          <div class="surface-story-track"><article class="surface-story-card" aria-label="Schritt 1 von 3"><div class="surface-story-icon"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25 57 80 31l55 26-55 27-55-27Z"/><path d="m25 81 55 27 55-27"/><path d="m25 103 55 27 55-27"/><path d="M80 83v45"/></svg></div><div class="surface-story-copy"><span class="surface-story-step">BELAG UND OBERFLÄCHE</span><h3>Was soll entfernt werden?</h3><p>Rost, Graffiti und Farbschichten reagieren nicht alle gleich. Wir sehen uns an, welche Schicht auf welchem Untergrund liegt.</p></div></article><article class="surface-story-card" aria-label="Schritt 2 von 3"><div class="surface-story-icon"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M28 73h104v54H28z"/><path d="M40 73V49h80v24"/><path d="M51 127v-16m58 16v-16"/><path d="M80 28c-17 0-32 14-32 32s32 43 32 43 32-25 32-43S97 28 80 28Z"/><circle cx="80" cy="60" r="10"/></svg></div><div class="surface-story-copy"><span class="surface-story-step">ARBEIT VOR ORT</span><h3>Muss das Bauteil ausgebaut werden?</h3><p>Manche Bauteile lassen sich direkt vor Ort reinigen. Dafür müssen die Zugänglichkeit und die Schutzmaßnahmen passen.</p></div></article><article class="surface-story-card" aria-label="Schritt 3 von 3"><div class="surface-story-icon"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="28" y="29" width="104" height="102" rx="8"/><path d="M80 29v102M28 80h104"/><path d="m43 59 10 10 19-20"/><path d="m97 98 10 10 19-20"/></svg></div><div class="surface-story-copy"><span class="surface-story-step">PROBEFLÄCHE</span><h3>Wie reagiert das Material?</h3><p>Eine geeignete Probefläche hilft uns einzuschätzen, ob und mit welchen Einstellungen eine Reinigung infrage kommt.</p></div></article></div>
-        </div>
-        <div class="surface-story-foot"><span>WEITER SCROLLEN <span aria-hidden="true">⟶</span></span><div class="surface-story-progress" aria-hidden="true"><span id="surface-story-progress"></span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="wrap surface-layout">
+<div class="surface-story-heading"><div class="eyebrow">Oberfläche und Bauteil</div>
+<h2 id="surface-story-title">Das Teil ist noch gut.<br>Die Oberfläche nicht.</h2>
+<p class="lead">Rost, alte Farbe oder andere Rückstände: Entscheidend ist, was entfernt werden soll – und was darunter erhalten bleiben muss.</p>
+<p class="surface-assurance">Material und Eignung prüfen wir vor jeder Reinigung.</p></div>
+<div class="surface-carousel" aria-label="Drei Fragen zur Laserreinigung">
+<div class="surface-carousel-header"><strong>Was soll entfernt werden?</strong><div class="surface-carousel-controls">
+<button type="button" class="surface-arrow" data-surface-dir="-1" aria-label="Vorherige Frage" disabled>←</button>
+<button type="button" class="surface-arrow" data-surface-dir="1" aria-label="Nächste Frage">→</button></div></div>
+<div class="surface-carousel-window" id="surface-carousel-window" tabindex="0" aria-label="Fragen horizontal durchblättern">
+<div class="surface-carousel-track">
+<article class="surface-slide" aria-label="Belag und Verschmutzung"><div class="surface-slide-visual surface-visual-rust"><span>BELAG UND VERSCHMUTZUNG</span></div><div class="surface-slide-content"><h3>Was soll entfernt werden?</h3><p>Rost, Graffiti oder Farbschichten – wir prüfen, wie Belag und Untergrund zusammenhängen.</p></div></article>
+<article class="surface-slide" aria-label="Material und Bauteil"><div class="surface-slide-visual surface-visual-material"><span>MATERIAL UND BAUTEIL</span></div><div class="surface-slide-content"><h3>Woraus besteht das Teil?</h3><p>Metall, Stein oder Holz reagieren unterschiedlich. Das Material bestimmt, ob Laserreinigung sinnvoll ist.</p></div></article>
+<article class="surface-slide" aria-label="Einsatzort und Probefläche"><div class="surface-slide-visual surface-visual-location"><span>EINSATZORT UND PROBEFLÄCHE</span></div><div class="surface-slide-content"><h3>Was ist vor Ort möglich?</h3><p>Wir klären Zugänglichkeit, Schutzmaßnahmen und bei Bedarf eine kleine Probefläche.</p></div></article>
+</div></div>
+<div class="surface-carousel-footer"><span>Seitlich wischen oder Pfeile nutzen</span><div class="surface-carousel-dots" role="group" aria-label="Frage auswählen">
+<button type="button" class="surface-dot is-active" aria-current="true" aria-label="Frage 1 anzeigen" data-surface-index="0"></button>
+<button type="button" class="surface-dot" aria-label="Frage 2 anzeigen" data-surface-index="1"></button>
+<button type="button" class="surface-dot" aria-label="Frage 3 anzeigen" data-surface-index="2"></button>
+</div></div></div></div></section>
 <section class="section" id="anwendungen"><div class="wrap"><div class="section-top reveal"><div><div class="eyebrow">Mögliche Anwendungen</div><h2>Rost, Graffiti und<br>Farbschichten.</h2></div><p>Diese Anwendungen sind zum Start vorgesehen. Welche Flächen wir bearbeiten können, klären wir für jeden Auftrag.</p></div><div class="application-tabs" role="tablist" aria-label="Einsatzgebiete"><button type="button" class="application-tab" role="tab" id="tab-rost" data-application="rost" aria-selected="true" aria-controls="application-rost" tabindex="0"><span class="rsl-animated-icon animated rsl-tab-icon" aria-hidden="true"><svg class="ico" viewBox="0 0 60 60" focusable="false"><g class="stroke"><path d="M9 50V28l13 8V25l13 10V21l16 10v19H9Z"/><path d="M17 42h3m7 0h3m7 0h3m-24-9V12h8v15"/></g><path class="factory-smoke stroke" d="M13 10c-3-3 3-5 0-8"/></svg></span><span>Rost</span></button><button type="button" class="application-tab" role="tab" id="tab-graffiti" data-application="graffiti" aria-selected="false" aria-controls="application-graffiti" tabindex="-1"><span class="rsl-animated-icon animated rsl-tab-icon" aria-hidden="true"><svg class="ico" viewBox="0 0 60 60" focusable="false"><g class="spray-cloud" fill="#80AAD3"><path d="M8 27c-6-4-6-11 1-13 0-7 11-8 13-1 7 0 9 8 3 12l-5 6-12-4Z"/></g><g class="spray-dots" fill="#3F6593"><circle cx="11" cy="33" r="1.6"/><circle cx="8" cy="39" r="1.2"/><circle cx="17" cy="37" r="1"/></g><g class="stroke"><rect x="33" y="21" width="14" height="29" rx="2"/><path d="M34 28h12M38 21v-5h5v5M36 43h8"/></g><g class="spray-head stroke"><path d="M35 14h11v4H35zM35 16h-5"/></g></svg></span><span>Graffiti</span></button><button type="button" class="application-tab" role="tab" id="tab-holz" data-application="holz" aria-selected="false" aria-controls="application-holz" tabindex="-1"><span class="rsl-animated-icon animated rsl-tab-icon" aria-hidden="true"><svg class="ico" viewBox="0 0 60 60" focusable="false"><g class="leaf stroke"><path d="M12 44C12 22 28 11 49 10c0 20-11 36-29 35-6 0-8-4-8-1Z"/><path d="M12 50c8-15 18-24 30-31M24 34l-2-9M32 26l9 2"/></g></svg></span><span>Holz</span></button></div><div class="cards application-panels"><article class="card reveal application-panel" role="tabpanel" id="application-rost" aria-labelledby="tab-rost" ><span class="application-label">METALL</span><h3>Rost auf Metall.</h3><p>Bei rostigen Bauteilen prüfen wir Material, Zustand und Zugänglichkeit. Danach lässt sich die Reinigung einschätzen.</p><span class="tag">ROST · METALL</span></article><article class="card reveal application-panel" role="tabpanel" id="application-graffiti" aria-labelledby="tab-graffiti" hidden><span class="application-label">FASSADE</span><h3>Graffiti entfernen.</h3><p>Graffiti auf Stein und anderen Flächen ist ein geplanter Einsatzbereich. Die Eignung des Untergrunds muss geprüft werden.</p><span class="tag">FARBE · OBERFLÄCHEN</span></article><article class="card reveal application-panel" role="tabpanel" id="application-holz" aria-labelledby="tab-holz" hidden><span class="application-label">HOLZ</span><h3>Farbe auf Holz.</h3><p>Ob sich eine Farbschicht vom Holz lösen lässt, klären wir durch eine Prüfung und gegebenenfalls eine Probefläche.</p><span class="tag">BESCHICHTUNGEN · HOLZ</span></article></div><p class="note">Die praktische Eignung für einzelne Materialien und Verschmutzungen ist noch zu prüfen. Die Beispiele sind keine zugesicherten Ergebnisse.</p></div></section>
 <section class="section results" id="ergebnisse"><div class="wrap"><div class="section-top reveal"><div><div class="eyebrow">Vorher / Nachher</div><h2>Vorher. Nachher.<br>Neue Möglichkeiten.</h2></div><p>Drei illustrative Beispiele zeigen mögliche Anwendungen. Verschieben Sie die Lichtlinie in jedem Bild und vergleichen Sie.</p></div><div class="ai-label">KI-GENERIERTE BEISPIELE · KEINE KUNDENREFERENZEN</div><div class="comparison-grid" aria-label="Drei interaktive Bildvergleiche und eine Abschlusskarte"><article class="comparison-card"><div class="comparison" id="comparison-rost"><div class="photo-half after"><img src="assets/asset_1753ad1bea52.webp" alt="KI-generiertes Beispiel: Rost auf Metall. Nachher-Ansicht rechts im Bildpaar." loading="lazy" decoding="async"></div><div class="photo-half before"><img src="assets/asset_1753ad1bea52.webp" alt="KI-generiertes Beispiel: Rost auf Metall. Vorher-Ansicht links im Bildpaar." loading="lazy" decoding="async"></div><span class="compare-label left">VORHER</span><span class="compare-label right">NACHHER</span><div class="divider"><span class="handle">‹ ›</span></div><input type="range" min="0" max="100" value="50" aria-label="Rost auf Metall. Sichtbarer Vorher-Anteil" aria-valuetext="50 Prozent Vorher" aria-describedby="compare-help"></div><div class="comparison-copy"><span class="stack-number">ROST · BEISPIELANSICHT</span><h3>Rost auf Metall.</h3><p>KI-generiertes Beispiel eines korrodierten Stahlbauteils und einer möglichen gereinigten Oberfläche.</p></div></article><article class="comparison-card"><div class="comparison" id="comparison-graffiti"><div class="photo-half after"><img src="assets/asset_4df70714966d.webp" alt="KI-generiertes Beispiel: Graffiti auf Stein. Nachher-Ansicht rechts im Bildpaar." loading="lazy" decoding="async"></div><div class="photo-half before"><img src="assets/asset_4df70714966d.webp" alt="KI-generiertes Beispiel: Graffiti auf Stein. Vorher-Ansicht links im Bildpaar." loading="lazy" decoding="async"></div><span class="compare-label left">VORHER</span><span class="compare-label right">NACHHER</span><div class="divider"><span class="handle">‹ ›</span></div><input type="range" min="0" max="100" value="50" aria-label="Graffiti auf Stein. Sichtbarer Vorher-Anteil" aria-valuetext="50 Prozent Vorher" aria-describedby="compare-help"></div><div class="comparison-copy"><span class="stack-number">GRAFFITI · BEISPIELANSICHT</span><h3>Graffiti auf Stein.</h3><p>KI-generiertes Beispiel einer besprühten Steinfläche und einer möglichen gereinigten Ansicht.</p></div></article><article class="comparison-card"><div class="comparison" id="comparison-holz"><div class="photo-half after"><img src="assets/asset_ca8074fdaaeb.webp" alt="KI-generiertes Beispiel: Farbe auf Holz. Nachher-Ansicht rechts im Bildpaar." loading="lazy" decoding="async"></div><div class="photo-half before"><img src="assets/asset_ca8074fdaaeb.webp" alt="KI-generiertes Beispiel: Farbe auf Holz. Vorher-Ansicht links im Bildpaar." loading="lazy" decoding="async"></div><span class="compare-label left">VORHER</span><span class="compare-label right">NACHHER</span><div class="divider"><span class="handle">‹ ›</span></div><input type="range" min="0" max="100" value="50" aria-label="Farbe auf Holz. Sichtbarer Vorher-Anteil" aria-valuetext="50 Prozent Vorher" aria-describedby="compare-help"></div><div class="comparison-copy"><span class="stack-number">HOLZ · BEISPIELANSICHT</span><h3>Farbe auf Holz.</h3><p>KI-generiertes Beispiel eines beschichteten Holzbalkens und einer möglichen freigelegten Holzoberfläche.</p></div></article><aside class="comparison-cta"><span class="stack-number">IHRE OBERFLÄCHE</span><div class="eyebrow">Ihre Oberfläche</div><h3>Ihr Material ist nicht dabei?</h3><p>Ob Laserreinigung für Ihr Vorhaben infrage kommt, prüfen wir gemeinsam anhand Ihrer Oberfläche und einer Probefläche.</p><a class="btn" href="#kontakt">Reinigung anfragen</a></aside></div><div class="compare-footer"><div><strong>Illustrative Vorschau – keine zugesicherten Reinigungsergebnisse</strong>Die Bildpaare wurden künstlich erstellt. Die tatsächliche Eignung und das Ergebnis hängen von Material und Verschmutzung ab.</div><span id="compare-help">Regler verschieben und vergleichen<br>Tastatur: Pfeiltasten, Pos1 und Ende</span></div></div></section>
 <section class="section tech dark" id="technik"><div class="wrap split"><div class="tech-panel reveal"><div class="eyebrow">Unser Reinigungsgerät</div><div class="device-placeholder"><img class="logo" src="assets/asset_05cbf5c3b7a1.svg" alt="" aria-hidden="true"><span>Original-Gerätefoto folgt</span></div><div class="spec"><span>GERÄT</span><strong>TipTopLaser TPC-300W</strong></div><div class="spec"><span>LEISTUNG</span><strong>300 Watt</strong></div><div class="spec"><span>IMPULSE</span><strong>Nanosekunden</strong></div><p class="note">Angaben aus den Unternehmensunterlagen. Technischer Abgleich und praktische Tests stehen noch aus.</p></div><div class="tech-copy reveal"><div class="eyebrow">Laserreinigung erklärt</div><h2>So werden Schichten<br>mit Laserimpulsen<br>bearbeitet.</h2><p>Bei geeigneten Oberflächen können kurze Laserimpulse unerwünschte Schichten abtragen. Die Einstellungen richten sich nach dem Material und der Art der Verschmutzung.</p><div class="tech-steps"><div><span class="rsl-animated-icon animated rsl-tech-icon" aria-hidden="true"><svg class="ico" viewBox="0 0 60 60" focusable="false"><g class="pin stroke"><path d="M30 52S15 35 15 25a15 15 0 0 1 30 0c0 10-15 27-15 27Z"/><circle cx="30" cy="25" r="5"/></g><ellipse cx="30" cy="55" rx="10" ry="2" fill="currentColor" opacity=".15"/></svg></span><p>Material und Verschmutzung prüfen.</p></div><div><span class="rsl-animated-icon animated rsl-tech-icon" aria-hidden="true"><svg class="ico" viewBox="0 0 60 60" focusable="false"><path class="stroke" opacity=".2" d="M5 31h50"/><path class="pulse-line stroke" d="M5 31h13l6-12 8 26 7-15h16"/></svg></span><p>Laserimpulse auf die Oberfläche abstimmen.</p></div><div><span class="rsl-animated-icon animated rsl-tech-icon" aria-hidden="true"><svg class="ico" viewBox="0 0 60 60" focusable="false"><path class="stroke" d="m30 7 19 8v14c0 12-8 19-19 24-11-5-19-12-19-24V15l19-8Z"/><path class="shield-check stroke" d="m22 30 6 6 12-13"/></svg></span><p>Behandelte Fläche kontrollieren.</p></div></div></div></div></section>
@@ -381,6 +420,18 @@ main>.intro-section.surface-story{
 <footer><div class="wrap"><div class="footer-top"><a href="#" class="brand"><img class="brand-logo" src="assets/asset_e72146c902a3.svg" alt="Rhein-Sieg Lasertechnik" width="1045" height="214"></a><p>Mobile Laserreinigung im Rhein-Sieg-Kreis.<br>Rost, Graffiti und Farbschichten nach Eignungsprüfung.</p><a href="#kontakt" class="btn outline">Reinigung anfragen</a></div><div class="footer-bottom"><span>© 2026 Rhein-Sieg Lasertechnik · Designentwurf</span><div class="footer-links"><a href="#anwendungen">Anwendungen</a><a href="#impressum" data-legal="impressum">Impressum</a><a href="#datenschutz" data-legal="datenschutz">Datenschutz</a></div></div></div></footer>
 <dialog id="legal-dialog" aria-labelledby="legal-title"><h2 id="legal-title"></h2><p id="legal-copy"></p><button class="btn" id="legal-close">Schließen</button></dialog>
 <script>
+
+(()=>{const root=document.querySelector('.surface-carousel'),view=root?.querySelector('.surface-carousel-window');if(!view)return;
+const slides=[...root.querySelectorAll('.surface-slide')],dots=[...root.querySelectorAll('.surface-dot')],arrows=[...root.querySelectorAll('.surface-arrow')];
+const reduced=matchMedia('(prefers-reduced-motion:reduce)');let active=0,raf=0;
+function show(i,scroll){active=Math.max(0,Math.min(slides.length-1,i));dots.forEach((d,j)=>{d.classList.toggle('is-active',j===active);if(j===active)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});arrows.forEach(b=>b.disabled=active===(Number(b.dataset.surfaceDir)<0?0:slides.length-1));if(scroll)view.scrollTo({left:slides[active].offsetLeft-slides[0].offsetLeft,behavior:reduced.matches?'instant':'smooth'});}
+arrows.forEach(b=>b.addEventListener('click',()=>show(active+Number(b.dataset.surfaceDir),true)));
+dots.forEach(b=>b.addEventListener('click',()=>show(Number(b.dataset.surfaceIndex),true)));
+view.addEventListener('scroll',()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;show(Math.round(view.scrollLeft/Math.max(1,view.clientWidth)),false)})},{passive:true});
+view.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(active+(e.key==='ArrowRight'?1:-1),true)}});
+show(0,false);
+})();
+
 /* Medien, Kontaktdaten und Versand vor dem öffentlichen Start ergänzen. Keine Datenerfassung in dieser Vorschau. */
 const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
 function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='Menü'}
@@ -407,46 +458,7 @@ requestHeroParallax();
 (()=>{const tabs=[...document.querySelectorAll('.application-tab')],panels=[...document.querySelectorAll('.application-panel')];function choose(tab,focus){tabs.forEach(t=>{let active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1});panels.forEach(p=>{p.hidden=p.id!=='application-'+tab.dataset.application;if(!p.hidden)p.classList.add('shown')});if(focus)tab.focus()}tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>choose(tab,false));tab.addEventListener('keydown',e=>{let next=null;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==null){e.preventDefault();choose(tabs[next],true)}})})})();
 (()=>{const steps=[...document.querySelectorAll('.process-story .step')],num=document.querySelector('#process-number'),name=document.querySelector('#process-name'),fill=document.querySelector('#process-progress-fill');if(!steps.length||!num)return;const labels=['Anfrage','Begutachtung','Angebot','Reinigung'],details=['Material und Verschmutzung beschreiben.','Fläche und Voraussetzungen prüfen.','Auftrag kalkulieren.','Reinigung vor Ort durchführen.'];let raf=0;function update(){raf=0;let i=0,d=Infinity;steps.forEach((step,j)=>{const r=step.getBoundingClientRect(),delta=Math.abs(r.top+r.height/2-innerHeight*.55);if(delta<d){d=delta;i=j}});steps.forEach((step,j)=>step.classList.toggle('is-current',j===i));num.textContent=labels[i];name.textContent=details[i];fill.style.width=(25*(i+1))+'%'}function tick(){if(!raf)raf=requestAnimationFrame(update)}addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick,{passive:true});tick()})();
 
-/* Scroll section: no sticky hero; the only pinned surface is this isolated, opaque story stage. */
-(()=>{
- const story=document.querySelector('.surface-story'),region=story?.querySelector('.surface-story-region');
- const pin=story?.querySelector('.surface-story-sticky'),windowEl=story?.querySelector('.surface-story-window');
- const track=story?.querySelector('.surface-story-track'),progress=document.querySelector('#surface-story-progress');
- const counter=document.querySelector('#surface-story-counter');
- if(!story||!region||!pin||!windowEl||!track)return;
- const motion=matchMedia('(min-width:900px) and (prefers-reduced-motion:no-preference)');
- let distance=0,frame=0;
- const clamp=v=>Math.max(0,Math.min(1,v));
- function redraw(){
-   frame=0;
-   if(!motion.matches)return;
-   const currentTop=parseFloat(getComputedStyle(pin).top)||103;
-   const available=Math.max(1,region.offsetHeight-pin.offsetHeight);
-   const fraction=clamp((currentTop-region.getBoundingClientRect().top)/available);
-   track.style.transform='translate3d('+(-distance*fraction).toFixed(1)+'px,0,0)';
-   if(progress)progress.style.width=(33.333+66.667*fraction)+'%';
-   story.querySelectorAll('.surface-story-card').forEach((card,i)=>card.classList.toggle('is-current',i===Math.min(2,Math.round(fraction*2))));
- }
- function schedule(){if(!frame)frame=requestAnimationFrame(redraw)}
- function reflow(){
-   story.classList.toggle('is-scroll-enabled',motion.matches);
-   track.style.removeProperty('transform');
-   region.style.removeProperty('height');
-   if(!motion.matches){
-     if(counter)counter.textContent='01 / 03';
-     if(progress)progress.style.width='33.333%';
-     return;
-   }
-   distance=Math.max(0,track.scrollWidth-windowEl.clientWidth);
-   const scrollDistance=distance+80;
-   region.style.height=Math.ceil(pin.offsetHeight+scrollDistance)+'px';
-   redraw();
- }
- addEventListener('scroll',schedule,{passive:true});
- addEventListener('resize',()=>requestAnimationFrame(reflow),{passive:true});
- motion.addEventListener?.('change',reflow);
- reflow();
-})();
+
 (()=>{
  const hero=document.querySelector('main>.hero');
  const picker=document.querySelector('.video-hero-preview');
