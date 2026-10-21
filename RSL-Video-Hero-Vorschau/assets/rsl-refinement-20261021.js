@@ -79,7 +79,7 @@
    }));
    function update(){
     raf=0;
-    if(mobile.matches||reduced.matches){move(current/(items.length-1));return}
+    if(reduced.matches){move(current/(items.length-1));return}
     const top=items[0].getBoundingClientRect().top+30.5;
     const bottom=items[items.length-1].getBoundingClientRect().top+30.5;
     const progress=Math.max(0,Math.min(1,(innerHeight*.47-top)/Math.max(1,bottom-top)));
