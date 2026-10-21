@@ -25,10 +25,11 @@
    wrap.before(sticky);sticky.appendChild(wrap);
    const viewport=document.createElement('div');viewport.className='rsl-problem-viewport';
    points.before(viewport);viewport.appendChild(points);
+   // Anschauliche Symbole: Schleifgerät / Materialprüfung / fest verbautes Bauteil.
    const art=[
-    '<circle cx="32" cy="34" r="22"/><path d="M32 19v16l11 7M25 5h14M32 5v7"/>',
-    '<path d="m9 15 13-5 10 9-13 5zM19 24v18M9 15v18l10 9 13-5V19M39 13h16M47 7v12M40 35l7-7 7 7-7 7zM47 42v13M40 55h14"/>',
-    '<path d="m8 18 24-12 24 12v27L32 58 8 45zM8 18l24 13 24-13M32 31v27"/><circle cx="32" cy="19" r="5"/><path d="m13 38 10 5M41 43l10-5"/>'
+    '<path d="M13 43h36l7 8H9zM16 43l5-12h20l6 12M24 31l2-12h12l3 12M22 17h20M30 14v-5M13 51h38"/><circle cx="32" cy="39" r="4"/><path d="m10 25 7-3M46 22l7-4M12 17l5-1" />',
+    '<path d="M11 16h16v16H11zM37 16h16v16H37zM11 41h16v13H11zM37 41h16v13H37zM19 16v16M45 16v16M19 41v13M45 41v13"/><path d="M19 8v5M45 8v5M19 35v3M45 35v3"/><path d="m6 8 5 5M58 8l-5 5" />',
+    '<path d="M7 52V17h50v35M7 32h50M19 17V7h26v10M20 52V39h24v13M12 52h40"/><path d="M19 27h26M28 17v10M37 17v10"/><circle cx="14" cy="44" r="3"/><circle cx="50" cy="44" r="3"/>'
    ];
    const cards=[...points.querySelectorAll('article')];
    cards.forEach((card,i)=>{
