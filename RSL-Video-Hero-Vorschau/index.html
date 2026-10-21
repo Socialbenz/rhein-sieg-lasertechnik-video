@@ -509,7 +509,7 @@ footer .brand-logo{width:min(245px,100%);height:auto}
 @keyframes rsl-original-rust{0%,100%{opacity:1}55%{opacity:.57}}
 @media(max-width:760px){.rsl-team-photo{aspect-ratio:4/5}.team .people{gap:14px}.team .person h3{font-size:17px}.tech-panel .rsl-device-image{width:270px;height:270px}}
 @media(prefers-reduced-motion:reduce){.rsl-animated-icon.animated.rsl-micro-play .rsl-rust-gear,.rsl-animated-icon.animated.rsl-micro-play .rsl-rust-flecks{animation:none!important}}
-</style><link rel="stylesheet" href="assets/rsl-refinement-20261021.css"></head><body>
+</style><link rel="stylesheet" href="assets/rsl-refinement-20261021.css"><link rel="stylesheet" href="assets/rsl-gsap-motion.css"></head><body>
 
 <a class="skip" href="#inhalt">Zum Inhalt</a>
 <header id="header"><div class="wrap"><a href="#" class="brand" aria-label="Rhein-Sieg Lasertechnik – Start"><img class="brand-logo" src="assets/rsl_logo_horizontal_negativ.svg" onerror="this.onerror=null;this.src='assets/asset_e72146c902a3.svg'" alt="Rhein-Sieg Lasertechnik" width="1045" height="214"></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menü</button><nav id="navigation" aria-label="Hauptnavigation"><a href="#anwendungen">Anwendungen</a><a href="#ergebnisse">Ergebnisse</a><a href="#technik">Technik</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a><a class="btn light" href="#kontakt">Reinigung anfragen</a></nav></div></header>
@@ -630,4 +630,4 @@ function pick(which,initial=false){active=(which==='bild'||Object.hasOwn(clips,w
 if(still){video.pause();note.textContent='Statisches Vergleichsbild';}else{const c=clips[active],s=video.querySelector('source');if(s.getAttribute('src')!==c.file){s.setAttribute('src',c.file);video.setAttribute('poster',c.poster);video.load();}note.textContent='KI-generierte Videoszene · kein eigener Kundeneinsatz';}
 buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.heroClip===active)));if(!initial){const u=new URL(location.href);u.searchParams.set('video',active);history.replaceState(null,'',u.pathname+u.search+u.hash);}play()}
 buttons.forEach(b=>b.addEventListener('click',()=>pick(b.dataset.heroClip)));pick(new URLSearchParams(location.search).get('video')||'graffiti',true);reduced.addEventListener?.('change',play);document.addEventListener('visibilitychange',play)})();
-</script><script src="assets/rsl-refinement-20261021.js" defer></script></body></html>
+</script><script src="assets/vendor/gsap.min.js" defer></script><script src="assets/vendor/ScrollTrigger.min.js" defer></script><script src="assets/rsl-refinement-20261021.js" defer></script><script src="assets/rsl-gsap-motion.js" defer></script></body></html>
