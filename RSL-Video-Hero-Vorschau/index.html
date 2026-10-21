@@ -418,6 +418,20 @@ main>.intro-section.surface-story{position:relative;z-index:2;margin-top:-62px!i
 @media(max-width:900px){.rsl-timeline-grid{gap:32px}.rsl-timeline-visual{height:570px}}
 @media(max-width:760px){.rsl-timeline{padding:72px 0}.rsl-timeline-grid{grid-template-columns:1fr;gap:26px}.rsl-timeline-visual{grid-row:1;position:relative;top:auto;height:auto;aspect-ratio:16/10;min-height:290px;max-height:450px;border-radius:18px}.rsl-timeline-image figcaption{left:22px;bottom:52px}.rsl-timeline-image figcaption strong{font-size:26px}.rsl-timeline-disclaimer{bottom:16px;left:22px}.rsl-timeline-text h2{font-size:clamp(38px,8vw,52px)}.rsl-timeline-lead{margin-bottom:24px}.rsl-timeline-step{min-height:0;padding:16px 5px 24px 0}.rsl-timeline-cta{width:100%}}
 @media(max-width:430px){.rsl-timeline-visual{aspect-ratio:1/1}.rsl-timeline-disclaimer{font-size:10px}}
+/* Mobile: Das Bild gehört zum geöffneten Arbeitsschritt statt oberhalb der gesamten Timeline. */
+.rsl-timeline-mobile-preview{display:none}
+@media(max-width:760px){
+ .rsl-timeline.is-mobile-enhanced .rsl-timeline-visual{display:none}
+ .rsl-timeline-step{min-height:85px;padding-bottom:19px}
+ .rsl-timeline-step.is-active + .rsl-timeline-mobile-preview{display:block}
+ .rsl-timeline-mobile-preview{position:relative;isolation:isolate;margin:0 0 24px;aspect-ratio:16/10;min-height:190px;max-height:310px;overflow:hidden;border-radius:17px;background:#0a1b33;box-shadow:0 14px 34px #0a1b3324}
+ .rsl-timeline-mobile-preview img{display:block;width:100%;height:100%;object-fit:cover}
+ .rsl-timeline-mobile-preview:after{content:'';position:absolute;inset:25% 0 0;background:linear-gradient(transparent,#000f22eb);pointer-events:none}
+ .rsl-timeline-mobile-preview figcaption{position:absolute;z-index:1;bottom:17px;left:19px;right:19px;display:flex;flex-direction:column;gap:4px;color:#fff}
+ .rsl-timeline-mobile-preview figcaption span{font:10px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#c0e6fd}
+ .rsl-timeline-mobile-preview figcaption strong{font:600 clamp(21px,5.1vw,27px) Barlow,Arial,sans-serif;letter-spacing:-.02em;line-height:1.15}
+ .rsl-timeline-mobile-preview figcaption small{font-size:10px;line-height:1.35;color:#d2dfeb}
+}
 @media(prefers-reduced-motion:reduce){.rsl-timeline-marker,.rsl-timeline-step-body strong{transition:none}}
 
 /* Anwendungen: ein ruhiges Materialmotiv statt zusätzlicher voller Videofläche. */
@@ -498,13 +512,43 @@ main>.intro-section.surface-story{position:relative;z-index:2;margin-top:-62px!i
  const section=document.querySelector('.rsl-timeline');if(!section)return;
  const items=[...section.querySelectorAll('.rsl-timeline-step')],photos=[...section.querySelectorAll('.rsl-timeline-image')];
  if(items.length!==4||photos.length!==4)return;
+ const mobile=matchMedia('(max-width:760px)');
  let current=0,raf=0,interactionUntil=0;
- function activate(index){current=index;items.forEach((b,i)=>{b.classList.toggle('is-active',i===index);b.setAttribute('aria-expanded',String(i===index))});photos.forEach((p,i)=>{p.hidden=i!==index;p.classList.toggle('is-active',i===index)})}
+ // Dieselben Bildmotive auch direkt unter den zugehörigen Schritten zeigen.
+ photos.forEach((photo,i)=>{
+  const preview=document.createElement('figure');
+  preview.className='rsl-timeline-mobile-preview';
+  preview.id='rsl-timeline-mobile-image-'+i;
+  const image=photo.querySelector('img'),caption=photo.querySelector('figcaption');
+  if(image)preview.append(image.cloneNode(true));
+  if(caption)preview.append(caption.cloneNode(true));
+  items[i].insertAdjacentElement('afterend',preview);
+ });
+ section.classList.add('is-mobile-enhanced');
+ function syncControls(){
+  items.forEach((b,i)=>b.setAttribute('aria-controls',mobile.matches?'rsl-timeline-mobile-image-'+i:'rsl-timeline-image-'+i));
+ }
+ function activate(index){
+  current=index;
+  items.forEach((b,i)=>{b.classList.toggle('is-active',i===index);b.setAttribute('aria-expanded',String(i===index))});
+  photos.forEach((p,i)=>{p.hidden=i!==index;p.classList.toggle('is-active',i===index)});
+ }
  items.forEach((b,i)=>b.addEventListener('click',()=>{interactionUntil=Date.now()+1800;activate(i)}));
- function update(){raf=0;if(Date.now()<interactionUntil)return;const a=section.getBoundingClientRect();if(a.bottom<innerHeight*.18||a.top>innerHeight*.9)return;let idx=0,min=Infinity;items.forEach((el,i)=>{const r=el.getBoundingClientRect(),d=Math.abs(r.top+Math.min(45,r.height*.5)-innerHeight*.5);if(d<min){min=d;idx=i}});if(idx!==current)activate(idx)}
+ function update(){
+  raf=0;
+  // Mobil wird das Motiv bewusst per Tippen ausgewählt; kein ungewollter Wechsel beim Scrollen.
+  if(mobile.matches||Date.now()<interactionUntil)return;
+  const a=section.getBoundingClientRect();if(a.bottom<innerHeight*.18||a.top>innerHeight*.9)return;
+  let idx=0,min=Infinity;
+  items.forEach((el,i)=>{const r=el.getBoundingClientRect(),d=Math.abs(r.top+Math.min(45,r.height*.5)-innerHeight*.5);if(d<min){min=d;idx=i}});
+  if(idx!==current)activate(idx);
+ }
  function tick(){if(!raf)raf=requestAnimationFrame(update)}
- addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick,{passive:true});
- activate(0);
+ addEventListener('scroll',tick,{passive:true});
+ addEventListener('resize',tick,{passive:true});
+ mobile.addEventListener?.('change',()=>{syncControls();tick()});
+ syncControls();activate(0);
+
 })();
 
 (()=>{const root=document.querySelector('.surface-carousel'),view=root?.querySelector('.surface-carousel-window');if(!view)return;
