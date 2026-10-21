@@ -63,8 +63,8 @@
   const trigger=ScrollTrigger.create({
    trigger:section,
    start:'top top',
-   end:()=>'+='+Math.max(1150,Math.round(innerHeight*1.9)),
-   pin:true,pinSpacing:true,scrub:0.85,
+   end:()=>'+='+Math.max(820,Math.round(innerHeight*0.95)),
+   pin:true,pinSpacing:true,scrub:0.6,
    invalidateOnRefresh:true,anticipatePin:1,
    onUpdate:self=>applyProgress(self.progress)
   });
@@ -144,4 +144,21 @@
 
  // Layout can change after fonts and images settle, and after tab/mobile resize.
  addEventListener('load',()=>ScrollTrigger.refresh(),{once:true});
+
+ // Benefit icons: subtle single-run animation on first scroll-into-view, replayed on hover/focus.
+ const icons=[...document.querySelectorAll('.rsl-animated-icon')];
+ if(icons.length){
+  const play=icon=>{if(reduce.matches)return;icon.classList.remove('rsl-micro-play');void icon.offsetWidth;icon.classList.add('rsl-micro-play')};
+  if('IntersectionObserver' in window){
+   const observer=new IntersectionObserver(entries=>{
+    for(const entry of entries)if(entry.isIntersecting){play(entry.target);observer.unobserve(entry.target)}
+   },{threshold:.5});
+   icons.forEach(icon=>observer.observe(icon));
+  }
+  icons.forEach(icon=>{
+   const holder=icon.closest('article,button,.step')||icon;
+   holder.addEventListener('pointerenter',()=>play(icon));
+   holder.addEventListener('focusin',()=>play(icon));
+  });
+ }
 })();
