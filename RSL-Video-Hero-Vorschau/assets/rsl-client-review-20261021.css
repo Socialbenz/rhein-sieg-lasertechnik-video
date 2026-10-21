@@ -4,6 +4,14 @@
 .rsl-folder-tab{display:none}
 .rsl-mobile-stage{display:contents}
 
+/* Lösung-Section: Bild auf Desktop/Tablet auf volle Höhe des Textblocks strecken
+   statt als kleine, von der Aspect-Ratio begrenzte Box neben dem Text zu stehen. */
+@media(min-width:761px){
+  .rsl-solution-grid{align-items:stretch}
+  .rsl-solution-figure{height:100%;min-height:420px}
+  .rsl-solution-figure .rsl-solution-photo{height:100%;aspect-ratio:auto}
+}
+
 /* RSL Kundenabnahme 21.10.2026: Mobile Registerkarten, Timeline-Stapel und Consent-Demo */
 @media(max-width:760px){
   /* Vorher / Nachher: Register-Effekt wie aufeinanderliegende Aktenkarten. */

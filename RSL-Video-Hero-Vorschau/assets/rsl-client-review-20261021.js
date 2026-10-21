@@ -32,7 +32,7 @@ if(area){
 }
 // Visual demonstration only; no optional tracking code is loaded.
 const banner=document.createElement('aside');banner.className='rsl-demo-banner';
-banner.setAttribute('aria-label','Cookie-Einstellungen – Designentwurf');
+banner.setAttribute('aria-label','Cookie-Einstellungen, Designentwurf');
 banner.innerHTML='<span class="rsl-demo-eyebrow">Designentwurf · Cookie-Einstellungen</span>'+
 '<h2>Ihre Privatsphäre.</h2>'+
 '<p>Diese Vorschau zeigt, wie die spätere Cookie-Auswahl aussehen könnte. Aktuell sind keine optionalen Analyse- oder Marketingdienste eingebunden.</p>'+
@@ -41,9 +41,9 @@ banner.innerHTML='<span class="rsl-demo-eyebrow">Designentwurf · Cookie-Einstel
 '<div class="rsl-demo-actions"><button type="button" data-rsl-demo="all">Alle akzeptieren (Demo)</button><button type="button" data-rsl-demo="necessary">Nur notwendige</button><button type="button" class="rsl-demo-settings" data-rsl-demo="settings">Einstellungen</button></div>'+
 '<div class="rsl-demo-preferences" hidden>'+
 '<label><span>Notwendig<small>Technische Basisfunktionen.</small></span><input type="checkbox" checked disabled></label>'+
-'<label><span>Statistik<small>Zukunftsoption – derzeit inaktiv.</small></span><input type="checkbox" name="stats"></label>'+
-'<label><span>Externe Medien<small>Zukunftsoption – derzeit inaktiv.</small></span><input type="checkbox" name="media"></label>'+
-'<label><span>Marketing<small>Zukunftsoption – derzeit inaktiv.</small></span><input type="checkbox" name="marketing"></label>'+
+'<label><span>Statistik<small>Zukunftsoption, derzeit inaktiv.</small></span><input type="checkbox" name="stats"></label>'+
+'<label><span>Externe Medien<small>Zukunftsoption, derzeit inaktiv.</small></span><input type="checkbox" name="media"></label>'+
+'<label><span>Marketing<small>Zukunftsoption, derzeit inaktiv.</small></span><input type="checkbox" name="marketing"></label>'+
 '<button type="button" class="rsl-demo-save" data-rsl-demo="save">Demo-Auswahl speichern</button></div>';
 document.body.appendChild(banner);
 const footer=document.querySelector('footer .footer-links');

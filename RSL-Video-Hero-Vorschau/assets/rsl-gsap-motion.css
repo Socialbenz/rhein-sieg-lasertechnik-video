@@ -6,51 +6,32 @@
 .rsl-problem .rsl-problem-index{font-size:11px}
 .rsl-problem .rsl-problem-icon svg{stroke-width:2.4}
 @media(min-width:960px) and (min-height:760px){
-  .rsl-problem.rsl-gsap-active.section{padding:clamp(72px,8vh,100px) 0 clamp(48px,7vh,82px);min-height:0;overflow:visible}
-  .rsl-problem.rsl-gsap-active .rsl-problem-sticky>.wrap{width:min(1200px,calc(100% - 96px));min-width:0}
-  .rsl-problem.rsl-gsap-active .rsl-problem-intro{margin-bottom:clamp(19px,3vh,31px)}
-  .rsl-problem.rsl-gsap-active .rsl-problem-intro h2{max-width:900px;font-size:clamp(36px,4.4vw,58px)}
-  .rsl-problem.rsl-gsap-active .rsl-problem-intro>p{max-width:1000px;margin-top:15px;font-size:clamp(17px,1.42vw,20px);line-height:1.5}
-  .rsl-problem.rsl-gsap-active .rsl-problem-viewport{position:relative;overflow:hidden;border-radius:22px;isolation:isolate;box-shadow:0 20px 48px #0a1b3310}
-  .rsl-problem.rsl-gsap-active .rsl-problem-points{display:flex;gap:0;width:100%;border:0;transform:translate3d(0,0,0);will-change:transform}
-  .rsl-problem.rsl-gsap-active .rsl-problem-points article,
-  .rsl-problem.rsl-gsap-active .rsl-problem-points article+article{
-    flex:0 0 100%;width:100%;min-height:clamp(285px,34vh,360px);
-    display:grid;grid-template-columns:minmax(170px,.34fr) minmax(0,1fr);
-    grid-template-rows:auto auto 1fr;
-    column-gap:clamp(35px,5.5vw,84px);align-content:center;align-items:center;
-    padding:clamp(30px,4vw,50px);margin:0;
-    border:0;border-radius:0;
-    background:linear-gradient(118deg,#eaf1f8 0%,#f3f8fc 55%,#e8f0f7 100%);
+  .rsl-problem.rsl-split-active.section{padding:clamp(72px,8vh,104px) 0 clamp(48px,7vh,82px);min-height:0;overflow:visible;background:#fff}
+  .rsl-problem.rsl-split-active .rsl-problem-sticky>.wrap{
+    width:min(1280px,calc(100% - 96px));min-width:0;
+    display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+    column-gap:clamp(48px,6vw,110px);align-items:center;
   }
-  .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(2){background:linear-gradient(125deg,#e7eef6 0%,#f6f9fc 53%,#e5eff7 100%)}
-  .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(3){background:linear-gradient(125deg,#e9f2f8 0%,#f4f8fb 53%,#e9f0f6 100%)}
-  .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-index{
-    grid-column:2;grid-row:1;margin:0 0 11px;font-size:12px;color:#426b97;align-self:end
+  .rsl-problem.rsl-split-active .rsl-problem-intro{grid-column:1;grid-row:1;margin:0}
+  .rsl-problem.rsl-split-active .rsl-problem-intro h2{max-width:460px;font-size:clamp(32px,3.3vw,46px);line-height:1.1}
+  .rsl-problem.rsl-split-active .rsl-problem-intro>p{max-width:420px;margin-top:18px;font-size:clamp(16px,1.25vw,18px);line-height:1.55}
+  .rsl-problem.rsl-split-active .rsl-problem-viewport{
+    grid-column:2;grid-row:1;position:relative;overflow:visible;
+    height:clamp(230px,27vh,300px);
   }
-  .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-icon{
-    grid-column:1;grid-row:1/4;
-    display:grid;place-items:center;width:min(190px,100%);height:auto;aspect-ratio:1/1;
-    margin:0;border-radius:50%;border:1px solid #c2d9ec;
-    background:radial-gradient(circle at 35% 28%,#ffffff,#dbeaf7 90%);
-    color:#3f6593;box-shadow:0 11px 33px #3f65931e;
-    align-self:center;transition:background .4s ease
+  .rsl-problem.rsl-split-active .rsl-problem-points{position:relative;display:block;height:100%;border:0}
+  .rsl-problem.rsl-split-active .rsl-problem-points article{
+    position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+    padding:0;margin:0;border:0;background:none;opacity:0;will-change:opacity,transform
   }
-  .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-icon:after{content:'';position:absolute;width:calc(100% - 22px);height:calc(100% - 22px);border-radius:50%;border:1px solid #80aad33b;pointer-events:none}
-  .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-icon svg{width:83px;height:83px}
-  .rsl-problem.rsl-gsap-active .rsl-problem-points h3{
-    grid-column:2;grid-row:2;margin:0 0 12px;
-    font-size:clamp(27px,2.8vw,39px);max-width:690px;line-height:1.16
-  }
-  .rsl-problem.rsl-gsap-active .rsl-problem-points p{
-    grid-column:2;grid-row:3;align-self:start;margin:0;max-width:710px;
-    font-size:clamp(16px,1.55vw,19px);line-height:1.58;color:#52677f
-  }
-  .rsl-problem.rsl-gsap-active .rsl-problem-meter{display:flex;gap:17px;align-items:center;margin-top:24px;padding:0;min-height:27px}
-  .rsl-problem.rsl-gsap-active .rsl-problem-meter-track{height:4px;max-width:320px}
-  .rsl-problem.rsl-gsap-active .rsl-problem-meter-fill{transform:scaleX(0)}
-  .rsl-problem.rsl-gsap-active .rsl-problem-meter-label{font-size:12px;font-weight:600}
-  .rsl-problem.rsl-gsap-active .rsl-problem-meter-hint{font-size:12px;color:#527598}
+  .rsl-problem.rsl-split-active .rsl-problem-points .rsl-problem-index{margin:0 0 10px;font-size:12px;letter-spacing:.15em;color:#456b96}
+  .rsl-problem.rsl-split-active .rsl-problem-points h3{margin:0 0 12px;font-size:clamp(21px,1.9vw,27px);line-height:1.22;max-width:520px}
+  .rsl-problem.rsl-split-active .rsl-problem-points p{margin:0;max-width:480px;font-size:clamp(15px,1.15vw,17px);line-height:1.6;color:#52677f}
+  .rsl-problem.rsl-split-active .rsl-problem-meter{grid-column:2;grid-row:2;display:flex;gap:16px;align-items:center;margin-top:clamp(20px,3vh,32px);padding:0;min-height:27px}
+  .rsl-problem.rsl-split-active .rsl-problem-meter-track{height:3px;max-width:220px;background:#e0e9f2}
+  .rsl-problem.rsl-split-active .rsl-problem-meter-fill{transform:scaleX(0)}
+  .rsl-problem.rsl-split-active .rsl-problem-meter-label{font-size:12px;font-weight:600}
+  .rsl-problem.rsl-split-active .rsl-problem-meter-hint{font-size:12px;color:#527598}
 }
 @media(max-width:959px), (max-height:759px){
  .rsl-problem.section{overflow:visible}
@@ -93,32 +74,6 @@
 .rsl-problem-viewport{box-shadow:none!important;border:none!important;border-radius:0!important}
 .rsl-problem-points article{box-shadow:none!important}
 .rsl-problem-icon:after,.rsl-problem-points article:before,.rsl-problem-points article:after{content:none!important;display:none!important}
-@media(min-width:960px) and (min-height:760px){
- .rsl-problem.rsl-gsap-active{background:white!important}
- .rsl-problem.rsl-gsap-active .rsl-problem-viewport{overflow:hidden;box-shadow:none!important;border:0!important;border-radius:0!important}
- .rsl-problem.rsl-gsap-active .rsl-problem-points{background:#fff}
- .rsl-problem.rsl-gsap-active .rsl-problem-points article,
- .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(2),
- .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(3){
-   background:#fff!important;box-shadow:none!important;border:0!important;border-radius:0!important;
-   min-height:clamp(300px,37vh,370px);
-   grid-template-columns:minmax(155px,.32fr) minmax(0,1fr);
-   column-gap:clamp(42px,7vw,105px);
-   padding:clamp(20px,3vw,42px) 0;
- }
- .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-icon{
-   position:relative;display:grid;place-items:center;width:min(165px,100%);height:auto;
-   aspect-ratio:1;align-self:center;justify-self:center;
-   background:transparent!important;border:0!important;border-radius:0!important;
-   box-shadow:none!important;transition:none;color:#3f6593
- }
- .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-icon svg{width:min(135px,90%);height:min(135px,90%);stroke-width:2;overflow:visible}
- .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-index{font-size:12px;letter-spacing:.15em;color:#456b96}
- .rsl-problem.rsl-gsap-active .rsl-problem-points h3{font-size:clamp(30px,3vw,42px);margin-bottom:18px;line-height:1.17}
- .rsl-problem.rsl-gsap-active .rsl-problem-points p{font-size:clamp(17px,1.6vw,20px);max-width:680px;color:#52677f;line-height:1.6}
- .rsl-problem.rsl-gsap-active .rsl-problem-meter{margin-top:12px}
- .rsl-problem.rsl-gsap-active .rsl-problem-meter-track{background:#e0e9f2}
-}
 @media(max-width:959px), (max-height:759px){
  .rsl-problem .rsl-problem-viewport{overflow:visible!important}
  .rsl-problem .rsl-problem-points article,
@@ -133,19 +88,3 @@
 
 /* Finale Kunden-Vorschau: Icons komplett entfernen, reine Typografie im weißen Scroll-Panel. */
 .rsl-problem-icon{display:none!important}
-@media(min-width:960px) and (min-height:760px){
- .rsl-problem.rsl-gsap-active .rsl-problem-points article,
- .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(2),
- .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(3){
-  grid-template-columns:minmax(0,1fr)!important;
-  grid-template-rows:auto auto auto!important;
-  justify-content:center;
-  align-content:center;
-  padding-inline:clamp(12px,6vw,100px)!important;
- }
- .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-index,
- .rsl-problem.rsl-gsap-active .rsl-problem-points h3,
- .rsl-problem.rsl-gsap-active .rsl-problem-points p{grid-column:1!important}
- .rsl-problem.rsl-gsap-active .rsl-problem-points h3{max-width:900px;font-size:clamp(36px,4.1vw,57px)}
- .rsl-problem.rsl-gsap-active .rsl-problem-points p{max-width:830px;font-size:clamp(18px,1.9vw,23px)}
-}
