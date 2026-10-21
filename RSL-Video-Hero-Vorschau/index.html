@@ -509,7 +509,7 @@ footer .brand-logo{width:min(245px,100%);height:auto}
 @keyframes rsl-original-rust{0%,100%{opacity:1}55%{opacity:.57}}
 @media(max-width:760px){.rsl-team-photo{aspect-ratio:4/5}.team .people{gap:14px}.team .person h3{font-size:17px}.tech-panel .rsl-device-image{width:270px;height:270px}}
 @media(prefers-reduced-motion:reduce){.rsl-animated-icon.animated.rsl-micro-play .rsl-rust-gear,.rsl-animated-icon.animated.rsl-micro-play .rsl-rust-flecks{animation:none!important}}
-</style></head><body>
+</style><link rel="stylesheet" href="assets/rsl-refinement-20261021.css"></head><body>
 
 <a class="skip" href="#inhalt">Zum Inhalt</a>
 <header id="header"><div class="wrap"><a href="#" class="brand" aria-label="Rhein-Sieg Lasertechnik – Start"><img class="brand-logo" src="assets/rsl_logo_horizontal_negativ.svg" onerror="this.onerror=null;this.src='assets/asset_e72146c902a3.svg'" alt="Rhein-Sieg Lasertechnik" width="1045" height="214"></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menü</button><nav id="navigation" aria-label="Hauptnavigation"><a href="#anwendungen">Anwendungen</a><a href="#ergebnisse">Ergebnisse</a><a href="#technik">Technik</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a><a class="btn light" href="#kontakt">Reinigung anfragen</a></nav></div></header>
@@ -571,49 +571,7 @@ footer .brand-logo{width:min(245px,100%);height:auto}
 <dialog id="legal-dialog" aria-labelledby="legal-title"><h2 id="legal-title"></h2><p id="legal-copy"></p><button class="btn" id="legal-close">Schließen</button></dialog>
 <script>
 
-/* Vier Schritte: Bildwechsel auf Klick und entsprechend der Scrollposition. */
-(()=>{
- const section=document.querySelector('.rsl-timeline');if(!section)return;
- const items=[...section.querySelectorAll('.rsl-timeline-step')],photos=[...section.querySelectorAll('.rsl-timeline-image')];
- if(items.length!==4||photos.length!==4)return;
- const mobile=matchMedia('(max-width:760px)');
- let current=0,raf=0,interactionUntil=0;
- // Dieselben Bildmotive auch direkt unter den zugehörigen Schritten zeigen.
- photos.forEach((photo,i)=>{
-  const preview=document.createElement('figure');
-  preview.className='rsl-timeline-mobile-preview';
-  preview.id='rsl-timeline-mobile-image-'+i;
-  const image=photo.querySelector('img,.rsl-timeline-scene'),caption=photo.querySelector('figcaption');
-  if(image)preview.append(image.cloneNode(true));
-  if(caption)preview.append(caption.cloneNode(true));
-  items[i].insertAdjacentElement('afterend',preview);
- });
- section.classList.add('is-mobile-enhanced');
- function syncControls(){
-  items.forEach((b,i)=>b.setAttribute('aria-controls',mobile.matches?'rsl-timeline-mobile-image-'+i:'rsl-timeline-image-'+i));
- }
- function activate(index){
-  current=index;
-  items.forEach((b,i)=>{b.classList.toggle('is-active',i===index);b.setAttribute('aria-expanded',String(i===index))});
-  photos.forEach((p,i)=>{p.hidden=i!==index;p.classList.toggle('is-active',i===index)});
- }
- items.forEach((b,i)=>b.addEventListener('click',()=>{interactionUntil=Date.now()+1800;activate(i)}));
- function update(){
-  raf=0;
-  // Mobil wird das Motiv bewusst per Tippen ausgewählt; kein ungewollter Wechsel beim Scrollen.
-  if(mobile.matches||Date.now()<interactionUntil)return;
-  const a=section.getBoundingClientRect();if(a.bottom<innerHeight*.18||a.top>innerHeight*.9)return;
-  let idx=0,min=Infinity;
-  items.forEach((el,i)=>{const r=el.getBoundingClientRect(),d=Math.abs(r.top+Math.min(45,r.height*.5)-innerHeight*.5);if(d<min){min=d;idx=i}});
-  if(idx!==current)activate(idx);
- }
- function tick(){if(!raf)raf=requestAnimationFrame(update)}
- addEventListener('scroll',tick,{passive:true});
- addEventListener('resize',tick,{passive:true});
- mobile.addEventListener?.('change',()=>{syncControls();tick()});
- syncControls();activate(0);
-
-})();
+/* Timeline-Steuerung: separate Datei assets/rsl-refinement-20261021.js. */
 
 /* Medien, Kontaktdaten und Versand vor dem öffentlichen Start ergänzen. Keine Datenerfassung in dieser Vorschau. */
 const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
@@ -642,21 +600,7 @@ requestHeroParallax();
 (()=>{const steps=[...document.querySelectorAll('.process-story .step')],num=document.querySelector('#process-number'),name=document.querySelector('#process-name'),fill=document.querySelector('#process-progress-fill');if(!steps.length||!num)return;const labels=['Anfrage','Begutachtung','Angebot','Reinigung'],details=['Material und Verschmutzung beschreiben.','Fläche und Voraussetzungen prüfen.','Auftrag kalkulieren.','Reinigung vor Ort durchführen.'];let raf=0;function update(){raf=0;let i=0,d=Infinity;steps.forEach((step,j)=>{const r=step.getBoundingClientRect(),delta=Math.abs(r.top+r.height/2-innerHeight*.55);if(delta<d){d=delta;i=j}});steps.forEach((step,j)=>step.classList.toggle('is-current',j===i));num.textContent=labels[i];name.textContent=details[i];fill.style.width=(25*(i+1))+'%'}function tick(){if(!raf)raf=requestAnimationFrame(update)}addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick,{passive:true});tick()})();
 
 
-(()=>{
- const hero=document.querySelector('main>.hero');
- const picker=document.querySelector('.video-hero-preview');
- if(!hero||!picker)return;
- let frame=0;
- function update(){
-  frame=0;
-  const r=hero.getBoundingClientRect();
-  picker.classList.toggle('is-away',r.bottom<140||r.top>innerHeight-90);
- }
- function schedule(){if(!frame)frame=requestAnimationFrame(update)}
- addEventListener('scroll',schedule,{passive:true});
- addEventListener('resize',schedule,{passive:true});
- update();
-})();
+/* Hero-Auswahl gehört ausschließlich in die Hero-Section. */
 
 const form=document.querySelector('form');form.addEventListener('submit',e=>{e.preventDefault();document.querySelector('.form-status').textContent='Ihre Eingaben sind vollständig. Dies ist eine Formularvorschau: Es wurde keine Anfrage gesendet. Die Versandfunktion wird nach Freigabe der Geschäftsdaten eingerichtet.'});
 const dialog=document.querySelector('#legal-dialog');const legal={impressum:['Impressum – Entwurf','Die freigegebenen Anbieterangaben fehlen noch. Diese Seite ist eine Designvorschau. Vor einem öffentlichen Start müssen die vollständigen Unternehmens- und Kontaktdaten ergänzt werden.'],datenschutz:['Datenschutz – Entwurf','In dieser Vorschau versendet und speichert das Formular keine Eingaben. Es sind keine Analysewerkzeuge, externen Schriftabrufe oder Marketing-Cookies eingebunden. Der freigegebene Datenschutzhinweis für den späteren Betrieb und die gewählte Hosting- und Versandlösung muss noch ergänzt werden.']};function openLegal(key){if(!legal[key])return;document.querySelector('#legal-title').textContent=legal[key][0];document.querySelector('#legal-copy').textContent=legal[key][1];if(!dialog.open)dialog.showModal()};document.querySelectorAll('[data-legal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openLegal(a.dataset.legal)}));document.querySelector('#legal-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});openLegal(location.hash.slice(1));
@@ -686,4 +630,4 @@ function pick(which,initial=false){active=(which==='bild'||Object.hasOwn(clips,w
 if(still){video.pause();note.textContent='Statisches Vergleichsbild';}else{const c=clips[active],s=video.querySelector('source');if(s.getAttribute('src')!==c.file){s.setAttribute('src',c.file);video.setAttribute('poster',c.poster);video.load();}note.textContent='KI-generierte Videoszene · kein eigener Kundeneinsatz';}
 buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.heroClip===active)));if(!initial){const u=new URL(location.href);u.searchParams.set('video',active);history.replaceState(null,'',u.pathname+u.search+u.hash);}play()}
 buttons.forEach(b=>b.addEventListener('click',()=>pick(b.dataset.heroClip)));pick(new URLSearchParams(location.search).get('video')||'graffiti',true);reduced.addEventListener?.('change',play);document.addEventListener('visibilitychange',play)})();
-</script></body></html>
+</script><script src="assets/rsl-refinement-20261021.js" defer></script></body></html>
