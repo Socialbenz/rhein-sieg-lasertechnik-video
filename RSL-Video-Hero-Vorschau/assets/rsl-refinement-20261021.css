@@ -86,3 +86,13 @@ footer .footer-bottom{align-items:center;flex-wrap:wrap;line-height:1.6}
  .rsl-problem-icon{transition:none}
  .rsl-entrance{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* Team: identischer optischer Grund und framing in der Vorschau;
+   neue, freigestellte Original-Assets können später direkt ersetzt werden. */
+.team .rsl-team-frame{background:linear-gradient(180deg,#fff 0%,#f8fafc 72%,#e9f0f7 100%);border:1px solid #d5e0e8}
+.team .person:first-child .rsl-team-photo{transform:scale(1.2);object-position:center 24%;filter:brightness(1.07) saturate(.94)}
+.team .person:nth-child(2) .rsl-team-photo{transform:scale(1.015);object-position:center 23%}
+@media(prefers-reduced-motion:no-preference){
+ .team .person:first-child:hover .rsl-team-frame img{transform:scale(1.235)}
+ .team .person:nth-child(2):hover .rsl-team-frame img{transform:scale(1.045)}
+}
