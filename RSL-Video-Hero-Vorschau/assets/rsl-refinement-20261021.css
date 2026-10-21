@@ -96,3 +96,8 @@ footer .footer-bottom{align-items:center;flex-wrap:wrap;line-height:1.6}
  .team .person:first-child:hover .rsl-team-frame img{transform:scale(1.235)}
  .team .person:nth-child(2):hover .rsl-team-frame img{transform:scale(1.045)}
 }
+
+/* Kunden-Vorschau: freigestellte Portraits ohne künstliche Vergrößerung. */
+.team .rsl-team-frame{background:linear-gradient(180deg,#ffffff 0%,#f0f5fa 100%)!important}
+.team .rsl-team-frame .rsl-team-photo{object-fit:contain!important;object-position:center bottom!important;width:100%;height:100%;transform:none!important;filter:none!important}
+.team .person:hover .rsl-team-frame .rsl-team-photo{transform:none!important}
