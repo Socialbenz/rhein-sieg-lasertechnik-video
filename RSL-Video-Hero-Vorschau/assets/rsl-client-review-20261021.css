@@ -1,3 +1,9 @@
+
+/* Desktop-Rückstellung: ursprüngliche Sticky-Vergleichskarten unverändert.
+   Mobile-only Register beschränken; Timeline-Wrapper auf Desktop layoutneutral. */
+.rsl-folder-tab{display:none}
+.rsl-mobile-stage{display:contents}
+
 /* RSL Kundenabnahme 21.10.2026: Mobile Registerkarten, Timeline-Stapel und Consent-Demo */
 @media(max-width:760px){
   /* Vorher / Nachher: Register-Effekt wie aufeinanderliegende Aktenkarten. */
