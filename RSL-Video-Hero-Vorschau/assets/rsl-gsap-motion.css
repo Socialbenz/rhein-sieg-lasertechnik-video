@@ -87,3 +87,46 @@
  .rsl-problem-points article .rsl-problem-icon{animation:none!important}
  .rsl-problem-points,.rsl-problem-points article{transform:none!important}
 }
+
+/* 21.10.2026 · Offene Typografie statt Box-/Oval-Look. */
+.rsl-problem{background:#fff!important}
+.rsl-problem-viewport{box-shadow:none!important;border:none!important;border-radius:0!important}
+.rsl-problem-points article{box-shadow:none!important}
+.rsl-problem-icon:after,.rsl-problem-points article:before,.rsl-problem-points article:after{content:none!important;display:none!important}
+@media(min-width:960px) and (min-height:760px){
+ .rsl-problem.rsl-gsap-active{background:white!important}
+ .rsl-problem.rsl-gsap-active .rsl-problem-viewport{overflow:hidden;box-shadow:none!important;border:0!important;border-radius:0!important}
+ .rsl-problem.rsl-gsap-active .rsl-problem-points{background:#fff}
+ .rsl-problem.rsl-gsap-active .rsl-problem-points article,
+ .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(2),
+ .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(3){
+   background:#fff!important;box-shadow:none!important;border:0!important;border-radius:0!important;
+   min-height:clamp(300px,37vh,370px);
+   grid-template-columns:minmax(155px,.32fr) minmax(0,1fr);
+   column-gap:clamp(42px,7vw,105px);
+   padding:clamp(20px,3vw,42px) 0;
+ }
+ .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-icon{
+   position:relative;display:grid;place-items:center;width:min(165px,100%);height:auto;
+   aspect-ratio:1;align-self:center;justify-self:center;
+   background:transparent!important;border:0!important;border-radius:0!important;
+   box-shadow:none!important;transition:none;color:#3f6593
+ }
+ .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-icon svg{width:min(135px,90%);height:min(135px,90%);stroke-width:2;overflow:visible}
+ .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-index{font-size:12px;letter-spacing:.15em;color:#456b96}
+ .rsl-problem.rsl-gsap-active .rsl-problem-points h3{font-size:clamp(30px,3vw,42px);margin-bottom:18px;line-height:1.17}
+ .rsl-problem.rsl-gsap-active .rsl-problem-points p{font-size:clamp(17px,1.6vw,20px);max-width:680px;color:#52677f;line-height:1.6}
+ .rsl-problem.rsl-gsap-active .rsl-problem-meter{margin-top:12px}
+ .rsl-problem.rsl-gsap-active .rsl-problem-meter-track{background:#e0e9f2}
+}
+@media(max-width:959px), (max-height:759px){
+ .rsl-problem .rsl-problem-viewport{overflow:visible!important}
+ .rsl-problem .rsl-problem-points article,
+ .rsl-problem .rsl-problem-points article+article{
+  background:#fff!important;border:0!important;border-radius:0!important;
+  border-top:1px solid #d9e2eb!important;padding:26px 0!important
+ }
+ .rsl-problem .rsl-problem-points article:last-child{border-bottom:1px solid #d9e2eb!important}
+ .rsl-problem .rsl-problem-icon{width:68px;height:68px;display:grid;place-items:center;margin:12px 0 16px;border:0;background:transparent;border-radius:0}
+ .rsl-problem .rsl-problem-icon svg{width:65px;height:65px}
+}
