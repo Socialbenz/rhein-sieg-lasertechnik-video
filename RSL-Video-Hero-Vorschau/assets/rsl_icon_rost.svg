@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="120" height="120" style="color:#3F6593"><style>.line{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.grain{stroke-width:1.65;opacity:.78}</style><!-- Zahnrad / gleichmaessige, nicht verzerrte Silhouette -->
+<g class="line rust-gear" aria-hidden="true">
+  <path d="M24.77 12.88 L26.58 12.43 L26.18 8.33 L33.82 8.33 L33.42 12.43 L35.23 12.88 L38.40 14.20 L40.01 15.16 L42.62 11.98 L48.02 17.38 L44.84 19.99 L45.80 21.60 L47.12 24.77 L47.57 26.58 L51.67 26.18 L51.67 33.82 L47.57 33.42 L47.12 35.23 L45.80 38.40 L44.84 40.01 L48.02 42.62 L42.62 48.02 L40.01 44.84 L38.40 45.80 L35.23 47.12 L33.42 47.57 L33.82 51.67 L26.18 51.67 L26.58 47.57 L24.77 47.12 L21.60 45.80 L19.99 44.84 L17.38 48.02 L11.98 42.62 L15.16 40.01 L14.20 38.40 L12.88 35.23 L12.43 33.42 L8.33 33.82 L8.33 26.18 L12.43 26.58 L12.88 24.77 L14.20 21.60 L15.16 19.99 L11.98 17.38 L17.38 11.98 L19.99 15.16 L21.60 14.20Z"/>
+  <circle cx="30" cy="30" r="7.6"/>
+</g>
+<!-- Korrosionsstellen: ausschliesslich Blauabstufungen der Hausfarben -->
+<g class="rust-flecks">
+  <path class="rust-patch rust-one" fill="#5B86B6" d="M17.8 22.4c1.9-3.2 5.2-5.1 8.5-5.4l1.6 3.1-2.9 3.2-3.7-.2-2.2 2.2-1.3-2.9Z"/>
+  <path class="rust-patch rust-two" fill="#80AAD3" d="M41.2 24.1c2.5 1.2 4.3 3.5 4.1 6.3l-2.5 3.1-4-1.6-.9-3.5 3.3-4.3Z"/>
+  <path class="rust-patch rust-three" fill="#5B86B6" d="M26.8 39.2c2.6-.7 3.5 2.1 6 1.7l2.8 2.2-2.1 3.5-4.2-.1-4.3-2.3-.8-2.5 2.6-2.5Z"/>
+  <g class="rust-pits" fill="#80AAD3">
+    <circle cx="16.6" cy="31.5" r="1.2"/>
+    <circle cx="20" cy="37" r="1.5"/>
+    <circle cx="38.6" cy="39" r="1.35"/>
+    <circle cx="35" cy="15.7" r="1.05"/>
+  </g>
+</g></svg>
