@@ -42,36 +42,8 @@
    meter.innerHTML='<span class="rsl-problem-meter-label">01 / 03</span><span class="rsl-problem-meter-track"><span class="rsl-problem-meter-fill"></span></span><span class="rsl-problem-meter-hint">Weiter scrollen ↘</span>';
    viewport.after(meter);
    const fill=meter.querySelector('.rsl-problem-meter-fill'),label=meter.querySelector('.rsl-problem-meter-label');
-   const enable=matchMedia('(min-width:861px) and (min-height:660px) and (prefers-reduced-motion:no-preference)');
-   let distance=0,travel=0,raf=0;
-   function update(){
-    raf=0;if(!problem.classList.contains('rsl-horizontal-active'))return;
-    const fraction=Math.max(0,Math.min(1,-problem.getBoundingClientRect().top/Math.max(1,travel)));
-    points.style.transform='translate3d('+(-distance*fraction)+'px,0,0)';
-    fill.style.transform='scaleX('+fraction+')';
-    const active=Math.min(cards.length-1,Math.floor(fraction*(cards.length-.001)));
-    cards.forEach((c,i)=>c.classList.toggle('is-current',i===active));
-    label.textContent=String(active+1).padStart(2,'0')+' / 03';
-   }
-   function tick(){if(!raf)raf=requestAnimationFrame(update)}
-   function measure(){
-    problem.classList.remove('rsl-horizontal-active');
-    problem.style.removeProperty('height');points.style.removeProperty('transform');
-    cards.forEach(c=>c.classList.remove('is-current'));
-    if(!enable.matches)return;
-    problem.classList.add('rsl-horizontal-active');
-    distance=Math.max(0,points.scrollWidth-viewport.clientWidth);
-    if(distance<35){problem.classList.remove('rsl-horizontal-active');return}
-    travel=Math.max(500,Math.round(distance*1.65));
-    problem.style.height=(sticky.offsetHeight+travel)+'px';
-    tick();
-   }
-   addEventListener('scroll',tick,{passive:true});
-   addEventListener('resize',measure,{passive:true});
-   enable.addEventListener?.('change',measure);
-   // Bilder/Schriftgrößen können die gemessene Breite später verändern.
-   document.fonts?.ready.then(measure).catch(()=>{});
-   measure();
+   /* Kartennavigation steuert jetzt GSAP ScrollTrigger in rsl-gsap-motion.js. */
+
   }
  }
 
@@ -135,20 +107,6 @@
   }
  }
 
- // Sanfte Auftritte der einzelnen Abschnitte; ohne Script und bei reduced motion sichtbar.
- if('IntersectionObserver' in window&&!reduced.matches){
-  const selectors=[
-   '.rsl-solution-copy','.rsl-solution-figure','.rsl-application-top','.application-tabs',
-   '.results .section-top','.tech-panel','.tech-copy','.rsl-timeline-text',
-   '.team .wrap>div:first-child','.team .people','.faq-modern .wrap>div:first-child',
-   '.contact .wrap>div:first-child'
-  ];
-  const nodes=selectors.flatMap(sel=>[...document.querySelectorAll(sel)]);
-  document.documentElement.classList.add('rsl-motion-ready');
-  nodes.forEach(el=>el.classList.add('rsl-entrance'));
-  const observer=new IntersectionObserver(entries=>{
-   entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}});
-  },{threshold:.07,rootMargin:'0px 0px -20px 0px'});
-  nodes.forEach(el=>observer.observe(el));
- }
+ // Reveal-Animationen werden zentral über GSAP mit Reduced-Motion-Fallback gesteuert.
+
 })();
