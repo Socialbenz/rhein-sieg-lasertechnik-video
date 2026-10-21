@@ -1,3 +1,0 @@
-Medienpaket zum Branch preview/rsl-finale-medien-integration-2026-10-21
-ZIP im Repository-Stamm entpacken, damit assets/ und media/ im Verzeichnis RSL-Video-Hero-Vorschau landen.
-Bestehende media/graffiti.mp4 durch HD-Fassung ersetzen.
