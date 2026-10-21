@@ -1,35 +1,13 @@
 (()=>{
 'use strict';
-const comparisons=[...document.querySelectorAll('#ergebnisse .comparison-card,#ergebnisse .comparison-cta')];
-['01 · Rost / Metall','02 · Graffiti / Stein','03 · Farbe / Holz','04 · Ihre Oberfläche'].forEach((name,i)=>{
+const comparisons=[...document.querySelectorAll('#ergebnisse .comparison-card')];
+['01 · Rost / Metall','02 · Graffiti / Stein','03 · Farbe / Holz'].forEach((name,i)=>{
  const el=comparisons[i];if(!el)return;
  const tab=document.createElement('div');tab.className='rsl-folder-tab';tab.setAttribute('aria-hidden','true');
- tab.innerHTML='<span>'+name+'</span><span class="rsl-folder-indicator">Vorher / Nachher</span>';el.prepend(tab);
+ tab.innerHTML='<span>'+name+'</span>';el.prepend(tab);
 });
-const area=document.querySelector('#ablauf .rsl-timeline-steps');
-if(area){
- const steps=[...area.querySelectorAll(':scope > .rsl-timeline-step')];
- if(steps.length===4){
-  const stages=[];
-  steps.forEach((step,i)=>{
-   const preview=step.nextElementSibling?.classList.contains('rsl-timeline-mobile-preview')?step.nextElementSibling:null;
-   const stage=document.createElement('div');stage.className='rsl-mobile-stage';
-   stage.dataset.step=i;step.before(stage);stage.appendChild(step);if(preview)stage.appendChild(preview);stages.push(stage);
-  });
-  function update(){
-   if(!matchMedia('(max-width:760px)').matches)return;
-   let closest=Infinity,selected=0;
-   stages.forEach((stage,i)=>{
-    const dist=Math.abs(stage.getBoundingClientRect().top-innerHeight*.44);
-    if(dist<closest){closest=dist;selected=i}
-   });
-   stages.forEach((stage,i)=>stage.classList.toggle('is-current',selected===i));
-   steps.forEach((step,i)=>{step.classList.toggle('is-active',selected===i);step.setAttribute('aria-expanded',String(selected===i))});
-  }
-  let raf=0;function tick(){if(!raf)raf=requestAnimationFrame(()=>{raf=0;update()})}
-  addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick,{passive:true});tick();
- }
-}
+/* Zusammenarbeit bleibt auf Mobile eine normale Zeitleiste (wie Desktop, nur mit
+   kleineren Bildern) statt eigener Sticky-Karten; keine zusätzliche Wrapper-Logik nötig. */
 // Visual demonstration only; no optional tracking code is loaded.
 const banner=document.createElement('aside');banner.className='rsl-demo-banner';
 banner.setAttribute('aria-label','Cookie-Einstellungen, Designentwurf');

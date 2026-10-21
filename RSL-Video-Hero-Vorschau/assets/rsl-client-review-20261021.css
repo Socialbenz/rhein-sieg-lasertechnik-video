@@ -1,8 +1,7 @@
 
 /* Desktop-Rückstellung: ursprüngliche Sticky-Vergleichskarten unverändert.
-   Mobile-only Register beschränken; Timeline-Wrapper auf Desktop layoutneutral. */
+   Mobile-only Register beschränken. */
 .rsl-folder-tab{display:none}
-.rsl-mobile-stage{display:contents}
 
 /* Lösung-Section: Bild auf Desktop/Tablet auf volle Höhe des Textblocks strecken
    statt als kleine, von der Aspect-Ratio begrenzte Box neben dem Text zu stehen. */
@@ -39,8 +38,8 @@
   #ergebnisse .comparison-card:nth-child(3){top:156px;z-index:13}
   #ergebnisse .comparison-cta{top:187px;z-index:14;padding:clamp(24px,6vw,34px)}
   #ergebnisse .rsl-folder-tab{
-    position:relative;display:flex;align-items:center;justify-content:space-between;
-    gap:12px;order:-1;margin:-16px -17px 2px;
+    position:relative;display:flex;align-items:center;
+    order:-1;margin:-16px -17px 2px;
     min-height:49px;padding:11px 17px;
     border-radius:21px 21px 0 0;
     border-bottom:1px solid #d4e1ec;
@@ -51,11 +50,6 @@
   }
   #ergebnisse .comparison-card:nth-child(2) .rsl-folder-tab{background:#e6f0f8}
   #ergebnisse .comparison-card:nth-child(3) .rsl-folder-tab{background:#e2edf6}
-  #ergebnisse .rsl-folder-tab .rsl-folder-indicator{
-    display:flex;gap:5px;align-items:center;font-size:10px;letter-spacing:.06em;
-    color:#627b97
-  }
-  #ergebnisse .rsl-folder-tab .rsl-folder-indicator:after{content:'↕';font:16px Barlow,Arial,sans-serif;color:#3f6593}
   #ergebnisse .comparison-card .comparison{
     flex:none;width:100%;height:auto;aspect-ratio:4/3;border-radius:13px
   }
@@ -63,69 +57,16 @@
   #ergebnisse .comparison-card .stack-number{margin-bottom:8px}
   #ergebnisse .comparison-card .comparison-copy h3{font-size:clamp(23px,5.8vw,29px);margin-bottom:7px}
   #ergebnisse .comparison-card .comparison-copy p{font-size:14px;line-height:1.5}
-  #ergebnisse .comparison-cta .rsl-folder-tab{margin:-24px -24px 15px;background:rgba(192,230,253,.13);color:#c0e6fd;border-color:rgba(192,230,253,.2)}
-  #ergebnisse .comparison-cta .rsl-folder-tab .rsl-folder-indicator{color:#c0e6fd}
-  #ergebnisse .comparison-cta .rsl-folder-tab .rsl-folder-indicator:after{color:#c0e6fd}
   #ergebnisse .comparison-cta h3{font-size:clamp(28px,7vw,37px)}
   #ergebnisse .comparison-cta p{font-size:15px;line-height:1.55}
 
-  /* Zusammenarbeit: jede Stufe wird zur überlappenden Bild-/Textkarte. */
-  #ablauf .rsl-timeline-steps{padding-left:0;display:block;overflow:visible;margin-bottom:24px}
-  #ablauf .rsl-timeline-steps:after,
-  #ablauf .rsl-timeline-line-fill,
-  #ablauf .rsl-timeline-runner{display:none!important}
-  #ablauf .rsl-mobile-stage{
-    display:block;
-    position:sticky;
-    box-sizing:border-box;
-    margin-bottom:24px;
-    padding:16px 16px 18px;
-    border-radius:22px;
-    border:1px solid #cedae7;
-    background:#f7fafc;
-    box-shadow:0 12px 29px rgba(10,27,51,.12);
-    transition:border-color .3s ease,box-shadow .3s ease;
-  }
-  #ablauf .rsl-mobile-stage:nth-child(1){top:94px;z-index:11}
-  #ablauf .rsl-mobile-stage:nth-child(2){top:120px;z-index:12}
-  #ablauf .rsl-mobile-stage:nth-child(3){top:146px;z-index:13}
-  #ablauf .rsl-mobile-stage:nth-child(4){top:172px;z-index:14}
-  #ablauf .rsl-mobile-stage.is-current{border-color:#80aad3;box-shadow:0 15px 36px rgba(10,27,51,.18)}
-  #ablauf .rsl-mobile-stage .rsl-timeline-step{
-    width:100%;min-height:0;padding:0 0 14px 0;color:#0a1b33;
-  }
-  #ablauf .rsl-mobile-stage .rsl-timeline-marker{display:none}
-  #ablauf .rsl-mobile-stage .rsl-timeline-step-body{display:block}
-  #ablauf .rsl-mobile-stage .rsl-timeline-kicker{font-size:10px;letter-spacing:.13em}
-  #ablauf .rsl-mobile-stage .rsl-timeline-step-body strong{
-    display:block;margin:6px 0;color:#0a1b33!important;
-    font-size:clamp(20px,5.2vw,26px)!important;line-height:1.2
-  }
-  #ablauf .rsl-mobile-stage .rsl-timeline-description{
-    display:block!important;font-size:14px;line-height:1.42;color:#52677f
-  }
-  #ablauf .rsl-timeline.is-mobile-enhanced .rsl-timeline-visual,
-  #ablauf.rsl-timeline.is-mobile-enhanced .rsl-timeline-visual{display:none!important}
-  #ablauf .rsl-mobile-stage .rsl-timeline-mobile-preview,
-  #ablauf .rsl-mobile-stage .rsl-timeline-step.is-active + .rsl-timeline-mobile-preview{
-    display:block!important;margin:0;aspect-ratio:16/9;
-    min-height:155px;max-height:260px;overflow:hidden;border-radius:14px;
-  }
-  #ablauf .rsl-mobile-stage .rsl-timeline-mobile-preview figcaption{
-    left:10px;right:10px;bottom:9px;padding:8px 11px;border-radius:8px
-  }
-  #ablauf .rsl-mobile-stage .rsl-timeline-mobile-preview figcaption strong{font-size:clamp(17px,4.4vw,22px)}
-  #ablauf .rsl-mobile-stage.is-current .rsl-timeline-mobile-preview img{
-    transform:scale(1.025);transition:transform .7s cubic-bezier(.2,.7,.2,1)
-  }
+  /* Zusammenarbeit: Zeitleiste wie Desktop (Linie + Punkt, ein Schritt
+     aufgeklappt), nur mit kleinerem Vorschaubild statt eigener Kartenoptik. */
+  #ablauf .rsl-timeline-mobile-preview{min-height:150px;max-height:220px}
 }
 @media(max-width:760px) and (max-height:640px){
   /* Bei flachen Handydisplays: keine zu hohen fixierten Stapel. */
-  #ergebnisse .comparison-card,#ergebnisse .comparison-cta,
-  #ablauf .rsl-mobile-stage{position:relative!important;top:auto!important}
-}
-@media(prefers-reduced-motion:reduce){
- #ablauf .rsl-mobile-stage,#ablauf .rsl-mobile-stage img{transition:none!important}
+  #ergebnisse .comparison-card,#ergebnisse .comparison-cta{position:relative!important;top:auto!important}
 }
 /* Rechtliche Design-Demo, kein Tracking-Skript; Live-Dienste weiterhin inaktiv. */
 .rsl-demo-banner{
