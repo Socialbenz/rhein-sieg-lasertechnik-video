@@ -130,3 +130,22 @@
  .rsl-problem .rsl-problem-icon{width:68px;height:68px;display:grid;place-items:center;margin:12px 0 16px;border:0;background:transparent;border-radius:0}
  .rsl-problem .rsl-problem-icon svg{width:65px;height:65px}
 }
+
+/* Finale Kunden-Vorschau: Icons komplett entfernen, reine Typografie im weißen Scroll-Panel. */
+.rsl-problem-icon{display:none!important}
+@media(min-width:960px) and (min-height:760px){
+ .rsl-problem.rsl-gsap-active .rsl-problem-points article,
+ .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(2),
+ .rsl-problem.rsl-gsap-active .rsl-problem-points article:nth-child(3){
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:auto auto auto!important;
+  justify-content:center;
+  align-content:center;
+  padding-inline:clamp(12px,6vw,100px)!important;
+ }
+ .rsl-problem.rsl-gsap-active .rsl-problem-points .rsl-problem-index,
+ .rsl-problem.rsl-gsap-active .rsl-problem-points h3,
+ .rsl-problem.rsl-gsap-active .rsl-problem-points p{grid-column:1!important}
+ .rsl-problem.rsl-gsap-active .rsl-problem-points h3{max-width:900px;font-size:clamp(36px,4.1vw,57px)}
+ .rsl-problem.rsl-gsap-active .rsl-problem-points p{max-width:830px;font-size:clamp(18px,1.9vw,23px)}
+}
